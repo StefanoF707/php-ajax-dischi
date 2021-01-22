@@ -91,8 +91,19 @@ main #albums .album .album-bottom h4 {
   margin: 10px 0;
   color: #666666;
 }
-main #albums .album .album-bottom span {
+main #albums .album .album-bottom p {
   color: #4d4d4d;
+  margin-bottom: 10px;
+}
+main #albums .album .album-bottom span {
+  font-size: 13px;
+  color: #4d4d4d;
+}
+main #albums .album .album-bottom span::after {
+  content: ",";
+}
+main #albums .album .album-bottom span:last-child::after {
+  content: " ";
 }
 main #albums .album:hover {
   transform: scale(1.1);

@@ -41,9 +41,12 @@
                         <h4>
                             <?php echo $album["author"] ?>
                         </h4>
-                        <span>
+                        <p>
                             <?php echo $album["year"] ?>
-                        </span>
+                        </p>
+                        <?php foreach($album["genres"] as $genre) { ?>
+                            <span><?php echo $genre ?></span>
+                        <?php } ?>
                     </div>
                     <!-- /infobox -->
                 </li>

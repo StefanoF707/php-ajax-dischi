@@ -27,8 +27,19 @@ main {
                     margin: 10px 0;
                     color: darken(#fff, 60%);
                 }
-                span {
+                p {
                     color: darken(#fff, 70%);
+                    margin-bottom: 10px;
+                }
+                span {
+                    font-size: 13px;
+                    color: darken(#fff, 70%);
+                    &::after {
+                        content: ",";
+                    }
+                    &:last-child::after {
+                        content: " ";
+                    }
                 }
             }
             &:hover {
