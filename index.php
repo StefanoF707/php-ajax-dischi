@@ -19,29 +19,37 @@
 
     <main>
 
-    <ul id="albums">
-        <?php foreach ($albums as $album) { ?>
-            <li class="album">
-                <div class="album-top">
-                    <img src="<?php echo $album["poster"] ?>" alt="<?php echo "Album " . $album["title"] ?>" class="img-fit">
-                    <div class="layover">
-                        <i class="far fa-play-circle"></i>
+        <ul id="albums">
+            <?php foreach ($albums as $album) { ?>
+                <!-- struttura di ciascun album -->
+                <li class="album">
+
+                    <!-- locandina -->
+                    <div class="album-top">
+                        <img src="img/albums/<?php echo  $album["poster"] ?>.jpg" alt="<?php echo "Album " . $album["title"] ?>" class="img-fit">
+                        <div class="layover">
+                            <i class="far fa-play-circle"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="album-bottom">
-                    <h3>
-                        <?php echo $album["title"] ?>
-                    </h3>
-                    <h4>
-                        <?php echo $album["author"] ?>
-                    </h4>
-                    <span>
-                        <?php echo $album["year"] ?>
-                    </span>
-                </div>
-            </li>
-        <?php } ?>
-    </ul>
+                    <!-- /locandina -->
+
+                    <!-- infobox -->
+                    <div class="album-bottom">
+                        <h3>
+                            <?php echo $album["title"] ?>
+                        </h3>
+                        <h4>
+                            <?php echo $album["author"] ?>
+                        </h4>
+                        <span>
+                            <?php echo $album["year"] ?>
+                        </span>
+                    </div>
+                    <!-- /infobox -->
+                </li>
+                <!-- /struttura di ciascun album -->
+            <?php } ?>
+        </ul>
 
     </main>
 
