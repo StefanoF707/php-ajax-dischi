@@ -4,6 +4,32 @@
   box-sizing: border-box;
 }
 
-h1 {
-  color: red;
+body {
+  font-family: arial;
+  color: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.img {
+  width: 100%;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 20px;
+  background: #000;
+}
+header .header-left {
+  width: 150px;
 }

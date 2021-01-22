@@ -4,6 +4,16 @@
     box-sizing: border-box;
 }
 
-h1 {
-    color: $color;
+body {
+    font-family: arial;
+    color: #fff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.img {
+    width: 100%;
 }

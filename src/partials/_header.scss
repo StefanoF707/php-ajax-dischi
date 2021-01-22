@@ -1,0 +1,14 @@
+header {
+    @include horizontalFlex;
+    justify-content: space-between;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 20px;
+    background: $secondColor;
+    .header-left {
+        width: 150px;
+    }
+}
