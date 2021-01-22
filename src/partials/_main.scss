@@ -1,0 +1,42 @@
+main {
+    height: calc(100vh - #{$sectionsHeight} * 2);
+    margin-top: $sectionsHeight;
+    padding: 50px;
+    background: $mainColor;
+    overflow: auto;
+
+    #albums {
+        display: flex;
+        flex-wrap: wrap;
+        .album {
+            background: $secondColor;
+            width: calc(100% / 4 - 60px);
+            margin: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+            .album-top {
+                height: 220px;
+                @include cardsLayover;
+            }
+            .album-bottom {
+                margin-top: 15px;
+                h4 {
+                    margin: 10px 0;
+                    color: darken(#fff, 60%);
+                }
+                span {
+                    color: darken(#fff, 70%);
+                }
+            }
+            &:hover {
+                transform: scale(1.1);
+                .layover {
+                    opacity: 100%;
+                }
+            }
+        }
+    }
+}

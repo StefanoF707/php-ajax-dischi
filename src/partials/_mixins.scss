@@ -2,3 +2,21 @@
     display: flex;
     align-items: center;
 }
+
+@mixin cardsLayover {
+    position: relative;
+    .layover {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 50px;
+        background: #00000070;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+}
