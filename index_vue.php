@@ -1,3 +1,5 @@
+<?php include __DIR__ . "/partials/db.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +14,23 @@
 
     <?php include __DIR__ . "/partials/header.php" ?>
 
-    <main>
+    <main id="app">
 
         <ul id="albums">
-
+            <li v-for="album in albums" class="album">
+                <div class="album-top">
+                    <img :src="'img/albums/' + album.poster + '.jpg'" :alt="'album: ' + album.title"  class="img-fit">
+                    <div class="layover">
+                        <i class="far fa-play-circle"></i>
+                    </div>
+                </div>
+                <div class="album-bottom">
+                    <h3>{{ album.title }}</h3>
+                    <h4>{{ album.author }}</h4>
+                    <p>{{ album.year }}</p>
+                    <span v-for="genre in album.genres">{{ genre }}</span>
+                </div>
+            </li>
         </ul>
 
     </main>
@@ -23,6 +38,5 @@
     <?php include __DIR__ . "/partials/footer.php" ?>
 
     <script src="js/main.js" charset="utf-8"></script>
-
 </body>
 </html>
