@@ -10,12 +10,12 @@ let app = new Vue (
         methods: {
 
             getAllAlbums: function () {
-                axios.get("http://localhost/php-ajax-dischi/partials/server.php")
+                axios.get("/php-ajax-dischi/partials/server.php")
                 .then( (response) => {
                     this.albums = response.data;
                 });
             },
-            
+
         },
         mounted: function () {
             this.getAllAlbums();

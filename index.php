@@ -1,5 +1,6 @@
 <?php
     include __DIR__ . "/partials/db.php";
+    include __DIR__ . "/partials/vars.php";
  ?>
 <!DOCTYPE html>
 <html lang="en">
