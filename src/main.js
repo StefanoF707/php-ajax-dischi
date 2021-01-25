@@ -6,6 +6,7 @@ let app = new Vue (
         el: "#app",
         data: {
             albums: [],
+            filterGenre: "All",
         },
         methods: {
 
@@ -15,6 +16,15 @@ let app = new Vue (
                     this.albums = response.data;
                 });
             },
+
+            getFilteredAlbums: function () {
+                if (this.filterGenre != "All") {
+                    axios.get("/php-ajax-dischi/partials/geres_server.php")
+                    .then( (response) => {
+                        this.albums = response.data;
+                    });
+                }
+            }
 
         },
         mounted: function () {

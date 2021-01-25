@@ -19,7 +19,7 @@
     <main id="app">
 
         <ul id="albums">
-            <li v-for="album in albums" class="album">
+            <li v-for="album in albums" class="album" v-if="album.genre.includes(filterGenre) || filterGenre == 'All'">
                 <div class="album-top">
                     <img :src="'img/albums/' + album.poster + '.jpg'" :alt="'album: ' + album.title"  class="img-fit">
                     <div class="layover">
@@ -30,7 +30,7 @@
                     <h3>{{ album.title }}</h3>
                     <h4>{{ album.author }}</h4>
                     <p>{{ album.year }}</p>
-                    <span v-for="genre in album.genres">{{ genre }}</span>
+                    <span>{{ album.genre }}</span>
                 </div>
             </li>
         </ul>

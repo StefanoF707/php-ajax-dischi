@@ -3,6 +3,12 @@
     include __DIR__ . "/db.php";
     include __DIR__ . "/functions.php";
 
-    $allGenres = getGenres($albums, $allGenres);
+    $allGenres = [];
+
+    foreach($albums as $album) {
+        if (!in_array($album["genre"], $allGenres)) {
+            array_push($allGenres, $album["genre"]);
+        }
+    }
 
  ?>

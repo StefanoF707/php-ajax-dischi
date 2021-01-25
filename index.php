@@ -43,9 +43,9 @@
                         <p>
                             <?php echo $album["year"] ?>
                         </p>
-                        <?php foreach($album["genres"] as $genre) { ?>
-                            <span><?php echo $genre ?></span>
-                        <?php } ?>
+                        <span>
+                            <?php echo $genre ?>
+                        </span>
                     </div>
                     <!-- /infobox -->
                 </li>

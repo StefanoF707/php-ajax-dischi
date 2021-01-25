@@ -1850,7 +1850,8 @@ __webpack_require__.r(__webpack_exports__);
 var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
   el: "#app",
   data: {
-    albums: []
+    albums: [],
+    filterGenre: "All"
   },
   methods: {
     getAllAlbums: function getAllAlbums() {
@@ -1859,6 +1860,15 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
       axios__WEBPACK_IMPORTED_MODULE_0___default().get("/php-ajax-dischi/partials/server.php").then(function (response) {
         _this.albums = response.data;
       });
+    },
+    getFilteredAlbums: function getFilteredAlbums() {
+      var _this2 = this;
+
+      if (this.filterGenre != "All") {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().get("/php-ajax-dischi/partials/geres_server.php").then(function (response) {
+          _this2.albums = response.data;
+        });
+      }
     }
   },
   mounted: function mounted() {

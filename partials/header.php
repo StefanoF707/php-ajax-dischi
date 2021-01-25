@@ -8,15 +8,15 @@
     </div>
     <div class="header-right">
 
-        <form action="server.php" method="get">
-            <select name="genres">
+        <form action="genres_server.php" method="get">
+            <select name="filteredGenre" v-model="filterGenre">
                 <option value="All">All</option>
                 <?php foreach($allGenres as $genre) { ?>
-                    <option value="<?=$genre ?>"><?= $genre ?></option>
+                    <option value="<?= $genre ?>"><?= $genre ?></option>
                 <?php } ?>
             </select>
-            <button type="submit" name="button">Filtra per genere</button>
+            <button id="submit-btn" type="submit" name="button" @change="getFilteredAlbums">Filtra per genere</button>
         </form>
-        
+
     </div>
 </header>
