@@ -1,7 +1,3 @@
-<?php
-    include_once __DIR__ . "/partials/vars.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,30 +10,34 @@
 </head>
 <body>
 
-    <?php include __DIR__ . "/partials/header.php" ?>
+    <div id="app">
+        <?php include __DIR__ . "/partials/header.php" ?>
 
-    <main id="app">
+        <main>
 
-        <ul id="albums">
-            <li v-for="album in albums" class="album" v-if="album.genre.includes(filterGenre) || filterGenre == 'All'">
-                <div class="album-top">
-                    <img :src="'img/albums/' + album.poster + '.jpg'" :alt="'album: ' + album.title"  class="img-fit">
-                    <div class="layover">
-                        <i class="far fa-play-circle"></i>
+            <ul id="albums">
+                <li v-for="album in albums" class="album">
+                    <div class="album-top">
+                        <img :src="'img/albums/' + album.poster + '.jpg'" :alt="'album: ' + album.title"  class="img-fit">
+                        <div class="layover">
+                            <i class="far fa-play-circle"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="album-bottom">
-                    <h3>{{ album.title }}</h3>
-                    <h4>{{ album.author }}</h4>
-                    <p>{{ album.year }}</p>
-                    <span>{{ album.genre }}</span>
-                </div>
-            </li>
-        </ul>
+                    <div class="album-bottom">
+                        <h3>{{ album.title }}</h3>
+                        <h4>{{ album.author }}</h4>
+                        <p>{{ album.year }}</p>
+                        <span>{{ album.genre }}</span>
+                    </div>
+                </li>
+            </ul>
 
-    </main>
+        </main>
 
-    <?php include __DIR__ . "/partials/footer.php" ?>
+        <?php include __DIR__ . "/partials/footer.php" ?>
+    </div>
+
+
 
     <script src="js/main.js" charset="utf-8"></script>
 </body>

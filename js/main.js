@@ -1842,33 +1842,36 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 
 
-var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
+var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js").default;
+
+var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
   el: "#app",
   data: {
     albums: [],
-    filterGenre: "All"
+    filterGenre: ""
   },
   methods: {
     getAllAlbums: function getAllAlbums() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get("/php-ajax-dischi/partials/server.php").then(function (response) {
+      axios.get("/php-ajax-dischi/server.php").then(function (response) {
         _this.albums = response.data;
       });
     },
-    getFilteredAlbums: function getFilteredAlbums() {
+    filterAlbums: function filterAlbums() {
       var _this2 = this;
 
-      if (this.filterGenre != "All") {
-        axios__WEBPACK_IMPORTED_MODULE_0___default().get("/php-ajax-dischi/partials/geres_server.php").then(function (response) {
-          _this2.albums = response.data;
-        });
-      }
+      console.log(this.filterGenre);
+      axios.get("/php-ajax-dischi/server.php", {
+        params: {
+          filteredGenre: this.filterGenre
+        }
+      }).then(function (response) {
+        _this2.albums = response.data;
+      });
     }
   },
   mounted: function mounted() {
@@ -14112,18 +14115,6 @@ Vue.compile = compileToFunctions;
 /******/ 	// It's empty as some runtime module handles the default behavior
 /******/ 	__webpack_require__.x = x => {}
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => module['default'] :
-/******/ 				() => module;
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports

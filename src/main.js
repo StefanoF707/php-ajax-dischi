@@ -1,30 +1,34 @@
 import Vue from 'vue';
-import axios from 'axios';
+const axios = require('axios').default;
 
 let app = new Vue (
     {
         el: "#app",
         data: {
             albums: [],
-            filterGenre: "All",
+            filterGenre: "",
         },
         methods: {
 
             getAllAlbums: function () {
-                axios.get("/php-ajax-dischi/partials/server.php")
+                axios.get("/php-ajax-dischi/server.php")
                 .then( (response) => {
                     this.albums = response.data;
                 });
             },
 
-            getFilteredAlbums: function () {
-                if (this.filterGenre != "All") {
-                    axios.get("/php-ajax-dischi/partials/geres_server.php")
-                    .then( (response) => {
-                        this.albums = response.data;
-                    });
-                }
-            }
+            filterAlbums: function () {
+
+                console.log(this.filterGenre);
+                axios.get("/php-ajax-dischi/server.php", {
+                    params: {
+                        filteredGenre: this.filterGenre,
+                    }
+                })
+                .then( (response) => {
+                    this.albums = response.data;
+                });
+            },
 
         },
         mounted: function () {
